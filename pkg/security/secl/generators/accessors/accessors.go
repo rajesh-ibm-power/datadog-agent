@@ -537,9 +537,13 @@ func (e *Event) SetFieldValue(field eval.Field, value interface{}) error {
 	var ok bool
 	switch field {
 		{{range $Name, $Field := .Fields}}
-		{{if not $Field.Iterator}}
 		{{$FieldName := $Field.Name | printf "e.%s"}}
 		case "{{$Name}}":
+		{{if $Field.Iterator}}
+			if e.{{$Field.Iterator.Name}} == nil {
+				e.{{$Field.Iterator.Name}} = &{{$Field.Iterator.OrigType}}{}
+			}
+		{{end}}
 		{{if eq $Field.OrigType "string"}}
 			if {{$FieldName}}, ok = value.(string); !ok {
 				return &eval.ErrValueTypeMismatch{Field: "{{$Field.Name}}"}
@@ -557,7 +561,6 @@ func (e *Event) SetFieldValue(field eval.Field, value interface{}) error {
 				return &eval.ErrValueTypeMismatch{Field: "{{$Field.Name}}"}
 			}
 			return nil
-		{{end}}
 		{{end}}
 		{{end}}
 		}

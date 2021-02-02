@@ -3985,6 +3985,198 @@ func (e *Event) SetFieldValue(field eval.Field, value interface{}) error {
 		e.Open.Retval = int64(v)
 		return nil
 
+	case "process.ancestors.basename":
+
+		if e.Process.Ancestor == nil {
+			e.Process.Ancestor = &ProcessCacheEntry{}
+		}
+
+		if e.Process.Ancestor.BasenameStr, ok = value.(string); !ok {
+			return &eval.ErrValueTypeMismatch{Field: "Process.Ancestor.BasenameStr"}
+		}
+		return nil
+
+	case "process.ancestors.container_path":
+
+		if e.Process.Ancestor == nil {
+			e.Process.Ancestor = &ProcessCacheEntry{}
+		}
+
+		if e.Process.Ancestor.ContainerPath, ok = value.(string); !ok {
+			return &eval.ErrValueTypeMismatch{Field: "Process.Ancestor.ContainerPath"}
+		}
+		return nil
+
+	case "process.ancestors.cookie":
+
+		if e.Process.Ancestor == nil {
+			e.Process.Ancestor = &ProcessCacheEntry{}
+		}
+
+		v, ok := value.(int)
+		if !ok {
+			return &eval.ErrValueTypeMismatch{Field: "Process.Ancestor.Cookie"}
+		}
+		e.Process.Ancestor.Cookie = uint32(v)
+		return nil
+
+	case "process.ancestors.filename":
+
+		if e.Process.Ancestor == nil {
+			e.Process.Ancestor = &ProcessCacheEntry{}
+		}
+
+		if e.Process.Ancestor.PathnameStr, ok = value.(string); !ok {
+			return &eval.ErrValueTypeMismatch{Field: "Process.Ancestor.PathnameStr"}
+		}
+		return nil
+
+	case "process.ancestors.gid":
+
+		if e.Process.Ancestor == nil {
+			e.Process.Ancestor = &ProcessCacheEntry{}
+		}
+
+		v, ok := value.(int)
+		if !ok {
+			return &eval.ErrValueTypeMismatch{Field: "Process.Ancestor.GID"}
+		}
+		e.Process.Ancestor.GID = uint32(v)
+		return nil
+
+	case "process.ancestors.group":
+
+		if e.Process.Ancestor == nil {
+			e.Process.Ancestor = &ProcessCacheEntry{}
+		}
+
+		if e.Process.Ancestor.Group, ok = value.(string); !ok {
+			return &eval.ErrValueTypeMismatch{Field: "Process.Ancestor.Group"}
+		}
+		return nil
+
+	case "process.ancestors.id":
+
+		if e.Process.Ancestor == nil {
+			e.Process.Ancestor = &ProcessCacheEntry{}
+		}
+
+		if e.Process.Ancestor.ID, ok = value.(string); !ok {
+			return &eval.ErrValueTypeMismatch{Field: "Process.Ancestor.ID"}
+		}
+		return nil
+
+	case "process.ancestors.inode":
+
+		if e.Process.Ancestor == nil {
+			e.Process.Ancestor = &ProcessCacheEntry{}
+		}
+
+		v, ok := value.(int)
+		if !ok {
+			return &eval.ErrValueTypeMismatch{Field: "Process.Ancestor.Inode"}
+		}
+		e.Process.Ancestor.Inode = uint64(v)
+		return nil
+
+	case "process.ancestors.name":
+
+		if e.Process.Ancestor == nil {
+			e.Process.Ancestor = &ProcessCacheEntry{}
+		}
+
+		if e.Process.Ancestor.Name, ok = value.(string); !ok {
+			return &eval.ErrValueTypeMismatch{Field: "Process.Ancestor.Name"}
+		}
+		return nil
+
+	case "process.ancestors.overlay_numlower":
+
+		if e.Process.Ancestor == nil {
+			e.Process.Ancestor = &ProcessCacheEntry{}
+		}
+
+		v, ok := value.(int)
+		if !ok {
+			return &eval.ErrValueTypeMismatch{Field: "Process.Ancestor.OverlayNumLower"}
+		}
+		e.Process.Ancestor.OverlayNumLower = int32(v)
+		return nil
+
+	case "process.ancestors.pid":
+
+		if e.Process.Ancestor == nil {
+			e.Process.Ancestor = &ProcessCacheEntry{}
+		}
+
+		v, ok := value.(int)
+		if !ok {
+			return &eval.ErrValueTypeMismatch{Field: "Process.Ancestor.Pid"}
+		}
+		e.Process.Ancestor.Pid = uint32(v)
+		return nil
+
+	case "process.ancestors.ppid":
+
+		if e.Process.Ancestor == nil {
+			e.Process.Ancestor = &ProcessCacheEntry{}
+		}
+
+		v, ok := value.(int)
+		if !ok {
+			return &eval.ErrValueTypeMismatch{Field: "Process.Ancestor.PPid"}
+		}
+		e.Process.Ancestor.PPid = uint32(v)
+		return nil
+
+	case "process.ancestors.tid":
+
+		if e.Process.Ancestor == nil {
+			e.Process.Ancestor = &ProcessCacheEntry{}
+		}
+
+		v, ok := value.(int)
+		if !ok {
+			return &eval.ErrValueTypeMismatch{Field: "Process.Ancestor.Tid"}
+		}
+		e.Process.Ancestor.Tid = uint32(v)
+		return nil
+
+	case "process.ancestors.tty_name":
+
+		if e.Process.Ancestor == nil {
+			e.Process.Ancestor = &ProcessCacheEntry{}
+		}
+
+		if e.Process.Ancestor.TTYName, ok = value.(string); !ok {
+			return &eval.ErrValueTypeMismatch{Field: "Process.Ancestor.TTYName"}
+		}
+		return nil
+
+	case "process.ancestors.uid":
+
+		if e.Process.Ancestor == nil {
+			e.Process.Ancestor = &ProcessCacheEntry{}
+		}
+
+		v, ok := value.(int)
+		if !ok {
+			return &eval.ErrValueTypeMismatch{Field: "Process.Ancestor.UID"}
+		}
+		e.Process.Ancestor.UID = uint32(v)
+		return nil
+
+	case "process.ancestors.user":
+
+		if e.Process.Ancestor == nil {
+			e.Process.Ancestor = &ProcessCacheEntry{}
+		}
+
+		if e.Process.Ancestor.User, ok = value.(string); !ok {
+			return &eval.ErrValueTypeMismatch{Field: "Process.Ancestor.User"}
+		}
+		return nil
+
 	case "process.basename":
 
 		if e.Process.BasenameStr, ok = value.(string); !ok {
